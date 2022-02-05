@@ -52,7 +52,7 @@ public class Updateuserinfo extends HttpServlet {
 
 			PrintWriter pwriter=null;
 			pwriter=response.getWriter();       
-			RequestDispatcher dis=request.getRequestDispatcher("LoginUser.jsp");
+			RequestDispatcher dis=request.getRequestDispatcher("SignupUser.jsp");
 			dis.include(request, response);
 			pwriter.print("Sorry Username already exist."); 
 		}finally {
