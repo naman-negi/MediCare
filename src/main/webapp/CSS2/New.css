@@ -1,0 +1,41 @@
+.divtable2{
+margin:auto;
+height: 460px;
+}
+.divtable0{
+width:1300px;
+height: 3000px;
+position: relative;
+}
+.divtable{
+    margin:auto;
+    height: 100px;
+    width: 1300px;
+}
+
+.FontEdit2{
+    font-size: 19px;
+}
+.FontEdit1{
+ font-size: 19px;
+}
+.bigtable{
+height: 400px;
+}
+.bigtable td{
+   
+
+}
+ .button{
+      border-width:1px;
+      background-color: #5a6268;
+      border-radius: 5px;
+      height:30px;
+      
+      }
+body{
+    height: 1200px;
+}
+html{
+	height: 1200px;
+}

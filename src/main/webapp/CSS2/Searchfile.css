@@ -1,0 +1,68 @@
+.divtable{
+    margin:auto;
+    height: 100px;
+    width: 1300px;
+}
+
+
+.divtable2{
+margin-left:0;
+height: 460px;
+position: absolute;
+}
+
+
+
+
+
+
+.divtable0{
+width: 1300px;
+height: 3000px;
+margin:auto;
+
+}
+.bigtable{
+margin:auto;
+
+}
+.bigtable td{
+ border: 1px solid black;
+ border-collapse: collapse;
+ height:350px;
+ width:250px;
+}
+.imghere{
+	text-align:center;
+}
+.tdhere{
+	
+}
+
+
+
+
+
+.button1{
+	border-width:1px;
+    background-color: #5a6268;
+    height:30px;
+}
+.FontEdit2{
+    font-size: 19px;
+}
+.FontEdit1{
+ font-size: 19px;
+}
+ .button{
+      border-width:0px;
+      background-color:white;
+      height:3px;
+      
+      }
+body{
+    height: 1200px;
+}
+html{
+	height: 1200px;
+}
