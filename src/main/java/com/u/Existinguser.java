@@ -30,7 +30,7 @@ public class Existinguser extends HttpServlet {
 		SessionFactory factory=configuration.buildSessionFactory(builder.build());
 		Session session =factory.openSession();
 		
-	    User u=session.load(User.class, request.getParameter("username"));
+	    User u=session.load(User.class, request.getParameter("username").toLowerCase());
 	    
 	    try {
 	    String str=u.getPassword();
