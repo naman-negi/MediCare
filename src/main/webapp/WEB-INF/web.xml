@@ -91,7 +91,7 @@
     <description></description>
     <display-name>Updateuserinfo</display-name>
     <servlet-name>Updateuserinfo</servlet-name>
-    <servlet-class>com.u.Updateuserinfo</servlet-class>
+    <servlet-class>com.valid.Updateuserinfo</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>Updateuserinfo</servlet-name>
