@@ -27,7 +27,7 @@ public class Userlogout extends HttpServlet {
 		
 		    request.getSession().invalidate();
 		   
-	        response.sendRedirect(request.getContextPath() + "/Userlogout");
+	        response.sendRedirect(request.getContextPath() + "/Generalhome.jsp");
 	        }
 	}
 
