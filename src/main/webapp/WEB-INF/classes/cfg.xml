@@ -17,9 +17,9 @@
         <!-- Echo all executed SQL to stdout -->
         <property name="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</property>
          <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-         <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/projectdatabase</property>
+         <property name="hibernate.connection.url">jdbc:mysql://projectdatabase.cqqla7ibz1rn.ap-south-1.rds.amazonaws.com:3306/projectdatabase</property>
        <property name="hibernate.connection.username">admin</property>
-          <property name="hibernate.connection.password">9055</property>
+          <property name="hibernate.connection.password">1Windows</property>
         <property name="show_sql">true</property>
         <property name="hibernate.hbm2ddl.auto">update</property>
         <mapping class="com.controller.Medicinal"/>
