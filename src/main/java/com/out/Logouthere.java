@@ -19,7 +19,8 @@ public class Logouthere extends HttpServlet {
 		if(s3.getAttribute("username")!=null) {
 		
 		    request.getSession().invalidate();
-	        response.sendRedirect(request.getContextPath() + "/Logouthere2");
+		
+	        response.sendRedirect(request.getContextPath() + "/LoginAdmin.jsp");
 	        }
 	}
 

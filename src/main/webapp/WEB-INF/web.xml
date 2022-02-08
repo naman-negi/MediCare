@@ -146,26 +146,8 @@
     <servlet-name>Validateandpay</servlet-name>
     <url-pattern>/Validateandpay</url-pattern>
   </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>Userlogout2</display-name>
-    <servlet-name>Userlogout2</servlet-name>
-    <servlet-class>com.out.Userlogout2</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>Userlogout2</servlet-name>
-    <url-pattern>/Userlogout2</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>Logouthere2</display-name>
-    <servlet-name>Logouthere2</servlet-name>
-    <servlet-class>com.out.Logouthere2</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>Logouthere2</servlet-name>
-    <url-pattern>/Logouthere2</url-pattern>
-  </servlet-mapping>
+ 
+  
 
   <servlet>
     <description></description>
