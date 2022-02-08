@@ -4,16 +4,7 @@
   <welcome-file-list>
     <welcome-file>Generalhome.jsp</welcome-file>
   </welcome-file-list>
-  <servlet>
-    <description></description>
-    <display-name>Adminsearch</display-name>
-    <servlet-name>Adminsearch</servlet-name>
-    <servlet-class>com.admin.Adminsearch</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>Adminsearch</servlet-name>
-    <url-pattern>/Adminsearch</url-pattern>
-  </servlet-mapping>
+ 
   <servlet>
     <description></description>
     <display-name>ServValidating</display-name>
@@ -144,16 +135,7 @@
     <servlet-name>Cartdelete</servlet-name>
     <url-pattern>/Cartdelete</url-pattern>
   </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>Adminlogout</display-name>
-    <servlet-name>Adminlogout</servlet-name>
-    <servlet-class>com.valid.Adminlogout</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>Adminlogout</servlet-name>
-    <url-pattern>/Adminlogout</url-pattern>
-  </servlet-mapping>
+
   <servlet>
     <description></description>
     <display-name>Validateandpay</display-name>
@@ -184,16 +166,7 @@
     <servlet-name>Logouthere2</servlet-name>
     <url-pattern>/Logouthere2</url-pattern>
   </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>Fromimagname</display-name>
-    <servlet-name>Fromimagname</servlet-name>
-    <servlet-class>com.imagehere.Fromimagname</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>Fromimagname</servlet-name>
-    <url-pattern>/Fromimagname</url-pattern>
-  </servlet-mapping>
+
   <servlet>
     <description></description>
     <display-name>ReturnName</display-name>
