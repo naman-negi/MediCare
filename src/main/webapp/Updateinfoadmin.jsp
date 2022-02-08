@@ -44,8 +44,8 @@
 
 					<form action="Updatinghere" method="post" id="insert_form">
 
-						<%Updateretrieve dat=new Updateretrieve() ;
-   Medicinal medicinal=dat.dataretrieve(request.getParameter("productid2"));
+						<%Retrieve dat=new Retrieve() ;
+   Medicinal medicinal=dat.productretrieve1(request.getParameter("productid2"));
    String str=request.getParameter("productid2");
    %>
 

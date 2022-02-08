@@ -14,13 +14,12 @@ public class Logouthere extends HttpServlet {
         super();
     }
 
-
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	HttpSession s3=request.getSession(false);
 		if(s3.getAttribute("username")!=null) {
 		
 		    request.getSession().invalidate();
-	        response.sendRedirect(request.getContextPath() + "/LoginAdmin.jsp");
+	        response.sendRedirect(request.getContextPath() + "/Logouthere2");
 	        }
 	}
 

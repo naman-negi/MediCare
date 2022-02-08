@@ -55,6 +55,7 @@ public class Validateandpay extends HttpServlet {
 				
 				transaction1.commit();
 				session1.close();
+				factory1.close();
 				i=i+2;
 				
 
@@ -72,7 +73,7 @@ public class Validateandpay extends HttpServlet {
 			s.setAttribute("user",(Object)u);
 			transaction.commit();
 			session.close();
-		
+			factory.close();
 			response.sendRedirect(request.getContextPath()+"/ReturnHome.jsp");
 		}else {
 			
@@ -93,6 +94,7 @@ public class Validateandpay extends HttpServlet {
 				
 				transaction1.commit();
 				session1.close();
+				factory1.close();
 				i=i+2;
 			}
 			Transaction  transaction = session.beginTransaction();
@@ -108,7 +110,7 @@ public class Validateandpay extends HttpServlet {
 			s.setAttribute("user",(Object)u);
 			transaction.commit();
 			session.close();
-			
+			factory.close();
 			response.sendRedirect(request.getContextPath()+"/ReturnHome.jsp"); 
 			
 		}

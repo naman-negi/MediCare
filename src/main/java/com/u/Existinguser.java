@@ -18,44 +18,47 @@ import org.hibernate.cfg.Configuration;
 public class Existinguser extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-    public Existinguser() {
-        super();
-       }
+	public Existinguser() {
+		super();
+	}
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
+
 		Configuration configuration=new Configuration().configure("aibernate.cfg.xml");
-	    configuration.addAnnotatedClass(com.u.User.class);
+		configuration.addAnnotatedClass(com.u.User.class);
 		StandardServiceRegistryBuilder builder=new StandardServiceRegistryBuilder().applySettings(configuration.getProperties());
 		SessionFactory factory=configuration.buildSessionFactory(builder.build());
 		Session session =factory.openSession();
-		
-	    User u=session.load(User.class, request.getParameter("username").toLowerCase());
-	    
-	    try {
-	    String str=u.getPassword();
-		if(!(str.equalsIgnoreCase(request.getParameter("password")))){
-			 session.close();
-			 PrintWriter pwriter=null;
-			 pwriter=response.getWriter();       
-			 RequestDispatcher dis=request.getRequestDispatcher("LoginUser.jsp");
-			 dis.include(request, response);
-	         pwriter.print("Password don't match.");
-		}else {
-			HttpSession s=request.getSession(false);
-			s.setAttribute("user", u);
-			response.sendRedirect(request.getContextPath() + "/Generalhome.jsp");  		
+
+		User u=session.load(User.class, request.getParameter("username").toLowerCase());
+
+		try {
+			String str=u.getPassword();
+			if(!(str.equalsIgnoreCase(request.getParameter("password")))){
+				session.close();
+				PrintWriter pwriter=null;
+				pwriter=response.getWriter();       
+				RequestDispatcher dis=request.getRequestDispatcher("LoginUser.jsp");
+				dis.include(request, response);
+				factory.close();
+				pwriter.print("Password don't match.");
+			}else {
+				HttpSession s=request.getSession(false);
+				s.setAttribute("user", u);
+				factory.close();
+				response.sendRedirect(request.getContextPath() + "/Generalhome.jsp");  		
 			}
-	    }
-	    catch(Exception e) {
+		}
+		catch(Exception e) {
 			System.out.println(e.getMessage());
 			session.close();
-	    	 PrintWriter pwriter=null;
-			 pwriter=response.getWriter();       
-			 RequestDispatcher dis=request.getRequestDispatcher("LoginUser.jsp");
-			 dis.include(request, response);
-	         pwriter.print("Sorry Username doesnt exist."); 
-			} 
-	    
+			PrintWriter pwriter=null;
+			pwriter=response.getWriter();       
+			RequestDispatcher dis=request.getRequestDispatcher("LoginUser.jsp");
+			factory.close();
+			dis.include(request, response);
+			pwriter.print("Sorry Username doesnt exist."); 
+		} 
+
 	}
 }

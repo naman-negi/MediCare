@@ -16,6 +16,8 @@ import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
+
+
  
 /**
  * A Java servlet that handles file upload from client.
@@ -94,7 +96,9 @@ public class FileUploadHandler extends HttpServlet {
 
                  
                         item.write(storeFile);
-                        new ReturnName(fileName,(String)(s.getAttribute("productid6")));
+                       
+                        s.setAttribute("filename",(Object)fileName);
+                     //(s.getAttribute("productid6"))
                     }
                 }
     
@@ -106,6 +110,6 @@ public class FileUploadHandler extends HttpServlet {
         }   
         
        
-      response.sendRedirect(request.getContextPath() + "/AdminDatabase.jsp");  
+      response.sendRedirect(request.getContextPath() + "/ReturnName");  
     }
 }

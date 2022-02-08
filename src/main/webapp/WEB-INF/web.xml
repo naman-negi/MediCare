@@ -2,9 +2,7 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:web="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
   <display-name>MediCare</display-name>
   <welcome-file-list>
-  
     <welcome-file>Generalhome.jsp</welcome-file>
-   
   </welcome-file-list>
   <servlet>
     <description></description>
@@ -26,7 +24,6 @@
     <servlet-name>ServValidating</servlet-name>
     <url-pattern>/ServValidating</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <description></description>
     <display-name>Del</display-name>
@@ -166,5 +163,45 @@
   <servlet-mapping>
     <servlet-name>Validateandpay</servlet-name>
     <url-pattern>/Validateandpay</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Userlogout2</display-name>
+    <servlet-name>Userlogout2</servlet-name>
+    <servlet-class>com.out.Userlogout2</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Userlogout2</servlet-name>
+    <url-pattern>/Userlogout2</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Logouthere2</display-name>
+    <servlet-name>Logouthere2</servlet-name>
+    <servlet-class>com.out.Logouthere2</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Logouthere2</servlet-name>
+    <url-pattern>/Logouthere2</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Fromimagname</display-name>
+    <servlet-name>Fromimagname</servlet-name>
+    <servlet-class>com.imagehere.Fromimagname</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Fromimagname</servlet-name>
+    <url-pattern>/Fromimagname</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ReturnName</display-name>
+    <servlet-name>ReturnName</servlet-name>
+    <servlet-class>com.imagehere.ReturnName</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ReturnName</servlet-name>
+    <url-pattern>/ReturnName</url-pattern>
   </servlet-mapping>
 </web-app>

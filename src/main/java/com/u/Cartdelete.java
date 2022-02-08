@@ -140,6 +140,7 @@ public class Cartdelete extends HttpServlet {
 		}catch(Exception e) {
 	    System.out.println(e.getMessage());
 		s.setAttribute("user",(Object)u1);
+		factory.close();
 		response.sendRedirect(request.getContextPath()+"/"+arr0[(arr0.length)-1]);
 		}
 

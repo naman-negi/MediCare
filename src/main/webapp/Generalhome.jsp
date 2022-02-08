@@ -239,8 +239,9 @@
 
 
 	<%
-	Retrieve add_retrieve = new Retrieve();
+	Productretrieve add_retrieve = new Productretrieve();
 	List<Medicinal> list = add_retrieve.retrievedata();
+	
 	%>
 
 

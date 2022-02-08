@@ -24,8 +24,7 @@ public class Del extends HttpServlet  {
     
     
 	protected void service(HttpServletRequest request, HttpServletResponse response)  throws ServletException, IOException, SQLGrammarException {
-		try {
-       
+		
 		Configuration configuration=new Configuration().configure("cfg.xml");	    
 		configuration.addAnnotatedClass(com.controller.Medicinal.class);
 		StandardServiceRegistryBuilder builder=new StandardServiceRegistryBuilder().applySettings(configuration.getProperties());
@@ -33,13 +32,21 @@ public class Del extends HttpServlet  {
 	    Session session =factory.openSession();
 		Transaction transaction = session.beginTransaction();
 		
+		try {
+       
+	
+		
 	    Medicinal medicinal = session.load(Medicinal.class, request.getParameter("product1"));
 		session.delete(medicinal);
 	    transaction.commit();
 	    session.close();
-	    response.sendRedirect(request.getContextPath() + "/AdminDatabase.jsp");
+	    
 	
     }catch(Exception e) {
-		System.out.println(e.getMessage()); }
+		System.out.println(e.getMessage()); 
+	}finally {
+		factory.close();
+	    response.sendRedirect(request.getContextPath() + "/AdminDatabase.jsp");
 	}
+}
 }

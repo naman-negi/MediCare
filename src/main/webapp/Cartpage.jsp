@@ -145,7 +145,8 @@
 					<%
 					for (int i = 0; i < arr.length;) {
 						Productretrieve pd = new Productretrieve();
-						Medicinal md1 = pd.productretrieve(arr[i]);
+						Medicinal md1 = pd.productretrieve1(arr[i]);
+						
 					%>
 					<tr>
 						<td style="width: 200px; height: 200px;"><img
@@ -229,7 +230,7 @@
 							<%
 							for (int i = 0; i < arr.length;) {
 								Productretrieve pd = new Productretrieve();
-								Medicinal md1 = pd.productretrieve(arr[i]);%> <%=md1.getMedicine_name()%><br />
+								Medicinal md1 = pd.productretrieve1(arr[i]);%> <%=md1.getMedicine_name()%><br />
 							<%String[] arr2 = md1.getPrice().split(" ");%> Total Price:<%=(Integer.parseInt(arr2[0]) * Integer.parseInt(arr[i + 1]))%><br />
 							<br /> <%m = m + (Integer.parseInt(arr2[0]) * Integer.parseInt(arr[i + 1]));%>
 							<br /> <br /> <%i = i + 2;%> <%}%> Grand Total:<%=m%> <%request.setAttribute("m", (Object) m);%>
@@ -297,6 +298,7 @@
 			</div>
 		</div>
 	</div>
+
 
 
 

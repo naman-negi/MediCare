@@ -25,22 +25,23 @@ public class Cartupdate extends HttpServlet {
 	}
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		HttpSession s = request.getSession(false);
 
 
 		
 
-		HttpSession s = request.getSession(false);
-		Configuration configuration=new Configuration().configure("aibernate.cfg.xml");
-		configuration.addAnnotatedClass(com.u.User.class);
-		StandardServiceRegistryBuilder builder=new StandardServiceRegistryBuilder().applySettings(configuration.getProperties());
-		SessionFactory factory=configuration.buildSessionFactory(builder.build());
-		Session session =factory.openSession();
+		
 
 		String str2 = request.getHeader("referer");
 		String[] arr0 = str2.split("/");
 
 			if((User)s.getAttribute("user")!=null){
+			
+				Configuration configuration=new Configuration().configure("aibernate.cfg.xml");
+				configuration.addAnnotatedClass(com.u.User.class);
+				StandardServiceRegistryBuilder builder=new StandardServiceRegistryBuilder().applySettings(configuration.getProperties());
+				SessionFactory factory=configuration.buildSessionFactory(builder.build());
+				Session session =factory.openSession();
 
 				String[] arr=request.getParameter("quantity").split(" ");
 
@@ -53,7 +54,7 @@ public class Cartupdate extends HttpServlet {
 					session.save(u1);
 					transaction.commit();
 					session.close();
-
+					factory.close();
 
 				}
 
@@ -80,6 +81,7 @@ public class Cartupdate extends HttpServlet {
 										session.save(u1);
 										transaction.commit();
 										session.close();
+										factory.close();
 
 
 									}
@@ -100,7 +102,7 @@ public class Cartupdate extends HttpServlet {
 											session.save(u1);
 											transaction.commit();
 											session.close();
-
+											factory.close();
 										}
 
 										str=str+arr2[i]+" ";  
@@ -124,7 +126,7 @@ public class Cartupdate extends HttpServlet {
 									session.save(u1);
 									transaction.commit();
 									session.close();
-
+									factory.close();
 
 								}
 
@@ -143,6 +145,7 @@ public class Cartupdate extends HttpServlet {
 										session.save(u1);
 										transaction.commit();
 										session.close();
+										factory.close();
 
 									}
 
@@ -162,7 +165,9 @@ public class Cartupdate extends HttpServlet {
 								session.save(u1);
 								transaction.commit();
 								session.close();
+								
 								s.setAttribute("user",(Object)u1);
+								factory.close();
 								response.sendRedirect(request.getContextPath()+"/"+arr0[(arr0.length)-1]);
 
 							}else 
@@ -180,6 +185,7 @@ public class Cartupdate extends HttpServlet {
 					}catch(Exception e){
 						System.out.println(e.getMessage());
 						s.setAttribute("user",(Object)u1);
+						factory.close();
 						response.sendRedirect(request.getContextPath()+"/"+arr0[(arr0.length)-1]);  
 					}
 

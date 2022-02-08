@@ -1,28 +1,29 @@
-package com.valid;
+package com.out;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-public class Adminlogout extends HttpServlet {
+
+import com.u.Productretrieve;
+
+public class Userlogout2 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
-    public Adminlogout() {
+    
+    public Userlogout2() {
         super();
     }
 
-	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession s3=request.getSession(false);
 
-		if(((String)s3.getAttribute("username"))!=null) {
-			
-		    request.getSession().invalidate();
+	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		
+		    Productretrieve.close();
 	        response.sendRedirect(request.getContextPath() + "/LoginAdmin.jsp");
 	        
-	        }
-		}
+	        
+	}
 
 }

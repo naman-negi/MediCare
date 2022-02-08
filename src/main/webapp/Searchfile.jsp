@@ -28,10 +28,10 @@
 
 
 
-	
+
 	<%
 	if(request.getParameter("search")!=null){
-		
+
 		HttpSession s3 = request.getSession(false);
 		User u = (User) s3.getAttribute("user");
 	if (u == null) {
@@ -159,84 +159,85 @@
 
 	<!-- Table 2 -->
 
-	<% Retrieve add_retrieve = new  Retrieve ();
-	    List<Medicinal> list = add_retrieve.retrievedata(); 
-	   
+	<% Productretrieve add_retrieve = new  Productretrieve ();
+	    List<Medicinal> list = add_retrieve.retrievedata();
+
 	    int length=0;
 	    for (int i=0;i<list.size();i++) {%>
-	    
+
 	    <%Pattern p = Pattern.compile((request.getParameter("search")).toLowerCase());%>
 	    	<%Matcher matcher1 = p.matcher((list.get(i).getCompany()).toLowerCase());
 	    	Matcher matcher2 = p.matcher((list.get(i).getMedicine_name()).toLowerCase());
 	    	Matcher matcher3 = p.matcher((list.get(i).getDescription()).toLowerCase());%>
-	    	<%if((matcher1.find())||(matcher2.find())||(matcher3.find())){ 
-	      	
+	    	<%if((matcher1.find())||(matcher2.find())||(matcher3.find())){
+
 	    	length=length+1;%>
-	    	
+
 	     <%s3.setAttribute("str"+Integer.toString(length),(Object)list.get(i).getProductid());%>
-	     
-	    	
+
+
 	    	<%}%>
 	<%} %>
 	<%int n; %>
 	<%length=1; %>
-	
+
 	<%if((String)(s3.getAttribute("str"+Integer.toString(length)))!=null){ %>
 	<div class="divtable0">
 		<table class="bigtable">
 			<tbody>
-				
-				
+
+
 				<%while((String)(s3.getAttribute("str"+Integer.toString(length)))!=null){ %>
 				<tr>
 				<%int m=0; %>
 					<%for(;m<3;m++){ %>
-					
+
 					<%Productretrieve pd=new Productretrieve();%>
-					<%Medicinal md=pd.productretrieve((String)(s3.getAttribute("str"+Integer.toString(length))));%>
+					<%Medicinal md=pd.productretrieve1((String)(s3.getAttribute("str"+Integer.toString(length))));%>
+				
 					
-					
-					
-					
+
+
+
 					<td>
 					<div class="imghere">
 					<img style="height: 200px; width: 250px;"
 						src=<%=md.getImgurl()%>></div>
-						
+
 						<div class="tdhere">
 						<p style="line-height:10px;">
-						<font style="font-size: 10px;"> 
-						
+						<font style="font-size: 10px;">
+
 						<%=md.getMedicine_name()%><br/>
 						<%=md.getPrice()%><br/>
 						<%=md.getDescription()%><br/>
-								
+
 					    </font>
 					    </p>
-					   
+
 						<form action="Cartupdate2" method="post">
-						
+
 							<button class="button1" type="submit" name="productid5"
 								value=<%=md.getProductid()%>>
 								 <p style="line-height:5px;">
 								<font style="color: black; font-size: 20px;">Add To Cart</font>
 								</p>
 							</button>
-						</form> 
-						
+						</form>
+
 						</div>
 						</td>
-						<%s3.removeAttribute((String)("str"+Integer.toString(length))); %>	
-					
+						<%s3.removeAttribute((String)("str"+Integer.toString(length))); %>
+
 				    <%length=length+1;
 				    if ((String)(s3.getAttribute("str"+Integer.toString(length)))==null){
 				    	break;
 				    }
-				    
+
 				      %>
-									
+
 					<%} %>
-					
+
 				</tr>
 				<%length=length+3; %>
 				<%if ((String)(s3.getAttribute("str"+Integer.toString(length)))==null){
@@ -246,15 +247,13 @@
 			</tbody>
 		</table>
 	</div>
-	
-<%}else{ %>
+ <%}else{ %>
 
 	<%response.sendRedirect(request.getContextPath()+"/Generalhome.jsp");%>
 
 <%} %>
 
 <%}else{ %>
-
 <%response.sendRedirect(request.getContextPath()+"/Generalhome.jsp");%>
 <%} %>
 </body>

@@ -54,6 +54,7 @@ public class Cartupdate2 extends HttpServlet {
 				transaction.commit();
 				session.close();
 				s.setAttribute("user",(Object)u1);
+				factory.close();
 				response.sendRedirect(request.getContextPath()+"/"+arr0[(arr0.length)-1]);
 
 			}
@@ -80,8 +81,10 @@ public class Cartupdate2 extends HttpServlet {
 								session.save(u1);
 								transaction.commit();
 								session.close();
+								
 								s.setAttribute("user",(Object)u1);
 								s.setAttribute("Done", (Object)"Done");
+								factory.close();
 
 							}							
 							if(i==0&&i!=(n-2)) {
@@ -106,6 +109,7 @@ public class Cartupdate2 extends HttpServlet {
 										session.close();
 										s.setAttribute("user",(Object)u1);
 										s.setAttribute("Done", (Object)"Done");
+										factory.close();
 										break;
 									}
 
@@ -143,6 +147,7 @@ public class Cartupdate2 extends HttpServlet {
 												session.close();
 												s.setAttribute("user",(Object)u1);
 												s.setAttribute("Done", (Object)"Done");
+												factory.close();
 												break;
 
 											}
@@ -172,6 +177,7 @@ public class Cartupdate2 extends HttpServlet {
 										session.close();
 										s.setAttribute("user",(Object)u1);
 										s.setAttribute("Done", (Object)"Done");
+										factory.close();
 									}
 								}
 							}
@@ -195,6 +201,7 @@ public class Cartupdate2 extends HttpServlet {
 									session.close();
 									s.setAttribute("user",(Object)u1);
 									s.setAttribute("Done", (Object)"Done");
+									factory.close();
 
 								}
 							}
@@ -216,6 +223,7 @@ public class Cartupdate2 extends HttpServlet {
 
 
 				s.removeAttribute("Done");
+				factory.close();
 				response.sendRedirect(request.getContextPath()+"/"+arr0[(arr0.length)-1]);
 
 			}

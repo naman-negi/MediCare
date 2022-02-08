@@ -26,16 +26,18 @@ public class Updatinghere extends HttpServlet {
     	}
     
 	protected void service(HttpServletRequest request, HttpServletResponse response)  throws ServletException, IOException, SQLGrammarException {
-		try {
-			Configuration configuration=new Configuration().configure("cfg.xml");	
+		Configuration configuration=new Configuration().configure("cfg.xml");	
 
-    	    		
 		
-				 configuration.addAnnotatedClass(com.controller.Medicinal.class);
-				 StandardServiceRegistryBuilder builder=new StandardServiceRegistryBuilder().applySettings(configuration.getProperties());
-				 SessionFactory factory=configuration.buildSessionFactory(builder.build());
-				 Session session =factory.openSession();
-				 Transaction transaction = null;
+		
+		 configuration.addAnnotatedClass(com.controller.Medicinal.class);
+		 StandardServiceRegistryBuilder builder=new StandardServiceRegistryBuilder().applySettings(configuration.getProperties());
+		 SessionFactory factory=configuration.buildSessionFactory(builder.build());
+		 Session session =factory.openSession();
+		 Transaction transaction = null;
+		 
+		try {
+			    
 				  
 			     HttpSession s2=request.getSession(false);
 
@@ -66,9 +68,11 @@ public class Updatinghere extends HttpServlet {
 			     session.save(md); 
 				 transaction.commit();
 				 session.close();
+			
 				 
 				 }
 				 else {
+					 
 					 transaction = session.beginTransaction();
 					 Medicinal md3=new Medicinal();
 				     md3= session.load(Medicinal.class, md0);
@@ -84,14 +88,20 @@ public class Updatinghere extends HttpServlet {
 				     session.save(md3); 
 					 transaction.commit();
 					 session.close();
+					 
 				   
 					 
 				 }
 				
 				
-			     response.sendRedirect(request.getContextPath() + "/AdminDatabase.jsp");  				 
+			  	 
     	    	
 			 }	catch(Exception e) {
-					System.out.println(e.getMessage()); } 
-			 } 
+					System.out.println(e.getMessage());  
+			 }finally {
+			   factory.close();
+		       response.sendRedirect(request.getContextPath() + "/AdminDatabase.jsp");  			
+			 }
+				 
+	}	 
 }

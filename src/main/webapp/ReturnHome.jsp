@@ -9,10 +9,10 @@
 <body>
 
 	<form id="GFG" action="Generalhome.jsp" method="post">
-	
+
 		Payment is made Successfully<br /> <br /> <a href="#"
 			onclick="myFunction()">Continue Shopping</a>
-			
+
 	</form>
 
 	<script>

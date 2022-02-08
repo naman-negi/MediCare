@@ -4,37 +4,68 @@ import java.util.*;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
-import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+
+//import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+
 import org.hibernate.cfg.Configuration;
 
 public class Retrieve {
-
+	private static Configuration configuration= new Configuration().configure("cfg.xml");
+	static{
+		new Configuration().configure("cfg.xml");
+	}
+	  private static SessionFactory factory;
+	    static {
+	          factory =configuration.buildSessionFactory();
+	    }
 	
+	    public Medicinal productretrieve1(String str) {
+	    	
+	    	 Session session =getSession();
+	    	 Medicinal md=new Medicinal();
+	    	 md=session.load(Medicinal.class,str);
+	    	 doWork();
+	    	 return md;
+	    	 
+	    }
 @SuppressWarnings("unchecked")
 public List<Medicinal> retrievedata() {
 	
-	Transaction transaction=null;
-	Session session=null;
+	
+	Session session =getSession();
+	
 	List<Medicinal> ls=new ArrayList<Medicinal>();
+	
 	try {
-	 Configuration configuration=new Configuration().configure("cfg.xml");
+	
 	 configuration.addAnnotatedClass(com.controller.Medicinal.class);
-	 StandardServiceRegistryBuilder builder=new StandardServiceRegistryBuilder().applySettings(configuration.getProperties());
-	 SessionFactory factory=configuration.buildSessionFactory(builder.build());
-	 session =factory.openSession();
-	 transaction = session.beginTransaction();
+	
+	 session =getSession();
+
 	 ls= new ArrayList<Medicinal>();
 	 ls = session.createQuery("from Medicinal").list();
 	} catch (Exception e) {
-        if (transaction != null) {
-            transaction.rollback();
-        }
+   
         e.printStackTrace();
     } finally {
-        session.close();
+       doWork();
     }
 return ls;
+}
+
+public Session getSession() {
+    return factory.openSession();
+}
+
+public void doWork() {
+   Session session = getSession();
+
+   session.close();
+}
+
+// Call this during shutdown
+public static void close() {
+  factory.close();
 }
 
 }

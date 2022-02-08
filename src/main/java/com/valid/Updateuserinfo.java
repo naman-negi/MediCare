@@ -46,17 +46,22 @@ public class Updateuserinfo extends HttpServlet {
 
 			session.save(md);
 			transaction.commit();
+			session.close();
+			factory.close();
 			response.sendRedirect(request.getContextPath() + "/LoginUser.jsp");
+			
+			
 		}catch(Exception e) {
+			
 			System.out.println(e.getMessage());
-
+			
 			PrintWriter pwriter=null;
 			pwriter=response.getWriter();       
 			RequestDispatcher dis=request.getRequestDispatcher("SignupUser.jsp");
 			dis.include(request, response);
+			factory.close();
 			pwriter.print("Sorry Username already exist."); 
-		}finally {
-			session.close();
+			
 		}
 	}
 }
