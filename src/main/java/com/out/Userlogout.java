@@ -27,7 +27,7 @@ public class Userlogout extends HttpServlet {
 		
 		    request.getSession().invalidate();
 		   
-	        response.sendRedirect(request.getContextPath() + "/Userlogout2");
+	        response.sendRedirect(request.getContextPath() + "/Userlogout");
 	        }
 	}
 
